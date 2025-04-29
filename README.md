@@ -82,7 +82,7 @@ g++ src/main.cpp -o hethongquanly -std=c++11 -lssl -lcrypto
 |-- src/
 |   |-- main.cpp      # Mã nguồn C++ (main.cpp)
 |
-|-- data
+|-- data              # Lưu thông tin User và Ví
 |
 |-- .gitignore        # Các file/thư mục bị Git bỏ qua
 |
