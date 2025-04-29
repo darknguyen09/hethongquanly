@@ -63,7 +63,7 @@ Sử dụng Windows Subsystem for Linux (WSL) và làm theo hướng dẫn cho U
 ### 3. Biên dịch chương trình
 
 Sử dụng "Makefile" được cung cấp để biên dịch:
-```shell
+```bash
 make
 ```
 Câu lệnh này sẽ tạo ra một file thực thi có tên "hethongquanly" trong thư mục gốc của chương trình.
