@@ -41,10 +41,10 @@
 ## Hướng dẫn Cài đặt và Chạy
 
 ### 1. Clone Repository
-
-git clone [https://github.com/ten-cua-ban/he-thong-quan-ly.git](https://github.com/ten-cua-ban/he-thong-quan-ly.git)
+```
+git clone https://github.com/darknguyen09/hethongquanly.git
 cd he-thong-quan-ly
-
+```
 ### 2. Cài đặt Dependencies
 
 - Trên Ubuntu/Debian:
