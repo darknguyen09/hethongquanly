@@ -79,16 +79,16 @@ g++ src/main.cpp -o hethongquanly -std=c++11 -lssl -lcrypto
 
 ## Cấu trúc chương trình
 
-|-- src/
-|   |-- main.cpp      # Mã nguồn C++ (main.cpp)
+|_ src/
+|   |_ main.cpp      # Mã nguồn C++ (main.cpp)
 |
-|-- data              # Lưu thông tin User và Ví
+|_ data              # Lưu thông tin User và Ví
 |
-|-- .gitignore        # Các file/thư mục bị Git bỏ qua
+|_ .gitignore        # Các file/thư mục bị Git bỏ qua
 |
-|-- README.md         # File này
+|_ README.md         # File này
 |
-|-- Makefile          # Hướng dẫn biên dịch tự động
+|_ Makefile          # Hướng dẫn biên dịch tự động
 
 ## Lưu ý về Bảo mật
 
