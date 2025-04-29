@@ -82,16 +82,31 @@ g++ src/main.cpp -o hethongquanly -std=c++11 -lssl -lcrypto
 ## Cấu trúc chương trình
 ```
 hethongquanly/
-├── src/              # Chứa mã nguồn
-│   └── main.cpp      # File mã nguồn C++
-├── data/             # Lưu trữ dữ liệu của User và Ví                   
-├── .gitignore        # Liệt kê các file/thư mục git bỏ qua
-├── README.md         # File hướng dẫn chính
-└── Makefile          # File biên dịch
+│
+├── include/              # Thư mục chứa các file Header (.h)
+│   │
+│   ├── user.h            # Khai báo lớp User và các hàm liên quan đến User
+│   │
+│   └── wallet.h          # Khai báo lớp Wallet và các hàm liên quan đến Ví (wallet)
+│
+├── src/                  # Thư mục chứa các file mã nguồn (.cpp)
+│   │
+│   ├── main.cpp          # Chứa hàm main(), vòng lặp menu chính/phụ, điều phối ứng dụng
+│   │
+│   ├── user.cpp          # Chứa định nghĩa/implementation các hàm đã khai báo trong user.h
+│   │
+│   └── wallet.cpp        # Chứa định nghĩa/implementation các hàm đã khai báo trong wallet.h
+│
+├── data/                 # Thư mục chứa file dữ liệu (Cần tạo thư mục này thủ công. File users.txt, wallets.txt, .bak sẽ được tạo/đọc ở đây)
+│
+├── .gitignore            # File liệt kê các mục git sẽ bỏ qua
+│
+├── README.md             # File giới thiệu, mô tả, hướng dẫn cài đặt và sử dụng
+│
+└── Makefile              # File chứa các quy tắc để biên dịch (lệnh 'make')
 ```
-## Lưu ý về Bảo mật
 
-- OTP Mô phỏng: Việc sử dụng "generateSimulatedOTP()" cho các chức năng như đổi mật khẩu, cập nhật hồ sơ, chuyển tiền. Nó chỉ in OTP ra màn hình thay vì gửi qua SMS, Email hoặc yêu cầu OTP từ ứng dụng xác thực như lúc đăng nhập.
+- OTP: Việc sử dụng "generateSimulatedOTP()" cho các chức năng như đổi mật khẩu, cập nhật hồ sơ, chuyển tiền. Nó chỉ in OTP ra màn hình thay vì gửi qua SMS, Email hoặc yêu cầu OTP từ ứng dụng xác thực như lúc đăng nhập.
 - Lưu trữ OATH Key: Khóa bí mật OATH được lưu trữ dưới dạng văn bản gốc trong "users.txt".
 - Lưu trữ Dữ liệu: Sử dụng file text để dữ liệu.
 - Randomness: "srand(time(0) + rand())" nguồn tạo số ngẫu nhiên cho mục đích mật mã.
