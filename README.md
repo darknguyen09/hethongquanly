@@ -41,7 +41,7 @@
 ## Hướng dẫn Cài đặt và Chạy
 
 ### 1. Clone Repository
-```
+```shell
 git clone https://github.com/darknguyen09/hethongquanly.git
 cd he-thong-quan-ly
 ```
