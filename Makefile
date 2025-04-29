@@ -1,40 +1,42 @@
-# Trinh bien dich C++
+# Ten trinh bien dich C++
 CXX = g++
 
-# Co bien dich
-CXXFLAGS = -std=c++11 -Wall -Wextra -g
+# Co bien dich:
+CXXFLAGS = -Iinclude -std=c++11 -Wall -Wextra -g
 
-# Co lien ket thu vien OpenSSL
+# Co lien ket thu vien:
 LDFLAGS = -lssl -lcrypto
 
-# Thu muc chua ma nguon
+# Thu muc chua file nguon
 SRC_DIR = src
 
 # Ten file thuc thi
 EXECUTABLE = hethongquanly
+SOURCES = $(SRC_DIR)/main.cpp $(SRC_DIR)/user.cpp $(SRC_DIR)/wallet.cpp
 
-# Tim tat ca cac file .cpp trong thu muc nguon (src)
-SOURCES = $(wildcard $(SRC_DIR)/*.cpp)
-
-# Tao ten file object (.o) tuong ung tu file nguon
+# Tao file object (.o)
 OBJECTS = $(SOURCES:.cpp=.o)
 
-# Bien dich file thuc thi
 all: $(EXECUTABLE)
 
-# Tao file thuc thi tu file object
+# Tao file thuc thi
 $(EXECUTABLE): $(OBJECTS)
-$(CXX) $(OBJECTS) -o $(EXECUTABLE) $(LDFLAGS)
-@echo "Bien dich hoan tat. Chay chương trinh bang lenh: ./$(EXECUTABLE)"
+	$(CXX) $(OBJECTS) -o $(EXECUTABLE) $(LDFLAGS)
+	@echo "Bien dich hoan tat. Chay chương trinh bang lenh: ./$(EXECUTABLE)"
 
-# Bien dich file nguon (.cpp) thanh file object (.o)
-$(SRC_DIR)/%.o: $(SRC_DIR)/%.cpp
-$(CXX) $(CXXFLAGS) -c $< -o $@
+# Bien dich .cpp thanh .o
+$(SRC_DIR)/main.cpp.o: $(SRC_DIR)/main.cpp include/user.h include/wallet.h
+	$(CXX) $(CXXFLAGS) -c $(SRC_DIR)/main.cpp -o $(SRC_DIR)/main.cpp.o
 
-# Don dep cac file da bien dich
+$(SRC_DIR)/user.cpp.o: $(SRC_DIR)/user.cpp include/user.h include/wallet.h
+	$(CXX) $(CXXFLAGS) -c $(SRC_DIR)/user.cpp -o $(SRC_DIR)/user.cpp.o
+
+$(SRC_DIR)/wallet.cpp.o: $(SRC_DIR)/wallet.cpp include/wallet.h include/user.h
+	$(CXX) $(CXXFLAGS) -c $(SRC_DIR)/wallet.cpp -o $(SRC_DIR)/wallet.cpp.o
+
+# Don dep
 clean:
-rm -f $(OBJECTS) $(EXECUTABLE)
-@echo "Don dep hoan tat."
+	rm -f $(OBJECTS) $(EXECUTABLE) $(SRC_DIR)/*.o
+	@echo "Don dep hoan tat."
 
-# Tranh xung dot ten file
 .PHONY: all clean
