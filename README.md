@@ -48,30 +48,32 @@ cd he-thong-quan-ly
 ### 2. Cài đặt Dependencies
 
 - Trên Ubuntu/Debian:
+```shell
 sudo apt update
 sudo apt install build-essential libssl-dev oathtool
-
+```
 - Trên macOS (sử dụng Homebrew):
+```shell
 brew update
 brew install openssl oathtool pkg-config
-
+```
 - Trên Windows:
 Sử dụng Windows Subsystem for Linux (WSL) và làm theo hướng dẫn cho Ubuntu/Debian.
 
 ### 3. Biên dịch chương trình
 
 Sử dụng "Makefile" được cung cấp để biên dịch:
-
+```shell
 make
-
+```
 Câu lệnh này sẽ tạo ra một file thực thi có tên "hethongquanly" trong thư mục gốc của chương trình.
-
+```shell
 g++ src/main.cpp -o hethongquanly -std=c++11 -lssl -lcrypto
-
+```
 ### 4. Chạy Chương trình
-
+```shell
 ./hethongquanly
-
+```
 - Lần chạy đầu tiên: Chương trình sẽ kiểm tra và nếu không có tài khoản "admin", nó sẽ tự động tạo một tài khoản "admin" với mật khẩu mặc định (admin123) và hiển thị OATH Secret Key.
   Ghi lại OATH Secret Key này và thêm vào ứng dụng xác thực của bạn (Google Authenticator, Authy,...). Bạn sẽ cần mã OTP từ ứng dụng này để đăng nhập.
 - Đăng nhập lần đầu: Đăng nhập với "admin" và mật khẩu "admin123". Nhập mã OTP từ ứng dụng xác thực. Hệ thống sẽ yêu cầu bạn đổi mật khẩu ngay lập tức.
