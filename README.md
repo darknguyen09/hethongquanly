@@ -78,7 +78,7 @@ g++ src/main.cpp -o hethongquanly -std=c++11 -lssl -lcrypto
 - Lưu trữ dữ liệu: Các file "users.txt" và "wallets.txt" (cùng các file ".bak") sẽ được tạo/cập nhật trong cùng thư mục bạn chạy file "hethongquanly".
 
 ## Cấu trúc chương trình
-
+```
 hethongquanly/
 ├── src/              # Chứa mã nguồn
 │   └── main.cpp      # File mã nguồn C++
@@ -86,7 +86,7 @@ hethongquanly/
 ├── .gitignore        # Liệt kê các file/thư mục git bỏ qua
 ├── README.md         # File hướng dẫn chính
 └── Makefile          # File biên dịch
-
+```
 ## Lưu ý về Bảo mật
 
 - OTP Mô phỏng: Việc sử dụng "generateSimulatedOTP()" cho các chức năng như đổi mật khẩu, cập nhật hồ sơ, chuyển tiền. Nó chỉ in OTP ra màn hình thay vì gửi qua SMS, Email hoặc yêu cầu OTP từ ứng dụng xác thực như lúc đăng nhập.
