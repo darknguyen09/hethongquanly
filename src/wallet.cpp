@@ -132,7 +132,7 @@ void transferPoints(User& sender, vector<User>& users, vector<Wallet>& wallets) 
 
     cout << "Ban chuan bi chuyen " << points << " diem den vi " << destWalletID << " (cua user: " << destUsername << ").\n";
     string otp = generateSimulatedOTP();
-    cout << "Ma OTP (mo phong gui den email/phone " << sender.email << "/" << sender.phone << "): " << otp << "\n";
+    cout << "Ma OTP: " << otp << "\n";
     string inputOtp;
     cout << "Nhap ma OTP de xac nhan giao dich: ";
     cin >> inputOtp;
