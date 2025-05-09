@@ -75,7 +75,7 @@ g++ src/main.cpp -o hethongquanly -std=c++11 -lssl -lcrypto
 ./hethongquanly
 ```
 - Lần chạy đầu tiên: Chương trình sẽ kiểm tra và nếu không có tài khoản "admin", nó sẽ tự động tạo một tài khoản "admin" với mật khẩu mặc định (admin123) và hiển thị OATH Secret Key.
-  Ghi lại OATH Secret Key này và thêm vào ứng dụng xác thực của bạn (Google Authenticator, Authy,...). Bạn sẽ cần mã OTP từ ứng dụng này để đăng nhập.
+  Ghi lại OATH Secret Key này và thêm vào ứng dụng xác thực của bạn (One Time Password, Google Authenticator, Microsoft Authenticator,...). Bạn sẽ cần mã OTP từ ứng dụng này để đăng nhập.
 - Đăng nhập lần đầu: Đăng nhập với "admin" và mật khẩu "admin123". Nhập mã OTP từ ứng dụng xác thực. Hệ thống sẽ yêu cầu bạn đổi mật khẩu ngay lập tức.
 - Lưu trữ dữ liệu: Các file "users.txt" và "wallets.txt" (cùng các file ".bak") sẽ được tạo/cập nhật trong cùng thư mục bạn chạy file "hethongquanly".
 
