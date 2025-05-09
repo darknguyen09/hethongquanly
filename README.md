@@ -1,6 +1,6 @@
 # Hệ Thống Quản Lý Người Dùng và Ví Điểm Thưởng
 
-Đây là một chương trình C++ đơn giản mô phỏng hệ thống quản lý người dùng và ví điểm thưởng, tích hợp các tính năng bảo mật cơ bản như băm mật khẩu (SHA-256) và xác thực hai yếu tố (TOTP) sử dụng thư viện OpenSSL và công cụ "oathtool".
+Đây là một chương trình C++ đơn giản mô phỏng hệ thống quản lý người dùng và ví điểm thưởng, tích hợp các tính năng bảo mật cơ bản như băm mật khẩu (SHA-256) và xác thực hai yếu tố (TOTP) sử dụng thư viện OpenSSL và công cụ OATH Toolkit.
 
 ## Tính năng
 
@@ -36,7 +36,7 @@
 
 1.  Trình biên dịch C++: Hỗ trợ C++11 trở lên (ví dụ: g++ hoặc clang++).
 2.  Thư viện OpenSSL: Bao gồm cả header files (thường là gói "libssl-dev" hoặc "openssl-devel"). Cần thiết cho việc băm mật khẩu.
-3.  Công cụ oathtool: Cần được cài đặt và có sẵn trong PATH của hệ thống. Cần thiết cho việc xác thực mã OTP 2FA.
+3.  Công cụ OATH Toolkit: Cần được cài đặt và có sẵn trong PATH của hệ thống. Cần thiết cho việc xác thực mã OTP 2FA.
 
 ## Hướng dẫn Cài đặt và Chạy
 
