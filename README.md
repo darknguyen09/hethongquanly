@@ -43,7 +43,7 @@
 ### 1. Clone Repository
 ```shell
 git clone https://github.com/darknguyen09/hethongquanly.git
-cd he-thong-quan-ly
+cd hethongquanly
 ```
 ### 2. Cài đặt Dependencies
 
