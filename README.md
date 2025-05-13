@@ -5,8 +5,8 @@
 | **Họ Tên** | **Mã sinh viên** | **Vai trò** | **Công việc được giao** |
 | --- | --- | --- | --- |
 | Nguyễn Năng Huy | K24DTCN201 | Lập trình viên | Thiết kế kiến trúc hệ thống, lập trình các chức năng: Menu, đăng nhập, đăng ký, quản lý người dùng (admin) ,tích hợp OTP, |
-| Trần Thị B | K24DTCNxxx | Lập trình viên | Phát triển các chức năng quản lý người dùng (admin), kiểm thử hệ thống. |
-| Lê Minh C | K24DTCNxxx | Lập trình viên | Xây dựng chức năng ví điểm thưởng, tích hợp bảo mật OTP và băm mật khẩu. |
+| Trần Thị B | K24DTCNxxx | Lập trình viên |  |
+| Lê Minh C | K24DTCNxxx | Lập trình viên |  |
 
 Đây là một chương trình C++ đơn giản mô phỏng hệ thống quản lý người dùng và ví điểm thưởng, tích hợp các tính năng bảo mật cơ bản như băm mật khẩu (SHA-256) và xác thực hai yếu tố (TOTP) sử dụng thư viện OpenSSL và công cụ OATH Toolkit.
 
