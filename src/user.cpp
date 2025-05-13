@@ -374,6 +374,7 @@ void viewUsers(const vector<User>& users) {
     cout << "--------------------------" << endl;
 }
 
+// chinh sua thong tin nguoi dung (admin)
 void adminEditUser(vector<User>& users) {
     string targetUsername;
     cout << "Nhap ten dang nhap cua nguoi dung can chinh sua: ";
