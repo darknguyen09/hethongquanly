@@ -1,49 +1,61 @@
 # Hệ Thống Quản Lý Người Dùng và Ví Điểm Thưởng
 
+## Giới thiệu thành viên tham gia:
+
 | **Tên** | **Vai trò** | **Công việc được giao** |
 | --- | --- | --- |
-| Nguyễn Văn A | Trưởng nhóm, Lập trình viên chính | Thiết kế kiến trúc hệ thống, lập trình các chức năng cốt lõi (đăng nhập, đăng ký, ví). |
+| Nguyễn Văn A | Lập trình viên | Thiết kế kiến trúc hệ thống, lập trình các chức năng: Menu, đăng nhập, đăng ký, quản lý người dùng (admin) ,tích hợp OTP, |
 | Trần Thị B | Lập trình viên | Phát triển các chức năng quản lý người dùng (admin), kiểm thử hệ thống. |
 | Lê Minh C | Lập trình viên | Xây dựng chức năng ví điểm thưởng, tích hợp bảo mật OTP và băm mật khẩu. |
-| Phạm Hoàng D | Nhà phân tích, Kiểm thử | Phân tích yêu cầu, viết đặc tả chức năng, kiểm thử và đảm bảo chất lượng phần mềm. |
 
 Đây là một chương trình C++ đơn giản mô phỏng hệ thống quản lý người dùng và ví điểm thưởng, tích hợp các tính năng bảo mật cơ bản như băm mật khẩu (SHA-256) và xác thực hai yếu tố (TOTP) sử dụng thư viện OpenSSL và công cụ OATH Toolkit.
 
-## Tính năng
+## Phân tích và đặc tả chức năng
 
-- Quản lý Người dùng:
-    * Đăng ký tài khoản mới (người dùng tự đăng ký hoặc admin tạo).
-    * Đăng nhập an toàn với mật khẩu đã được băm và mã OTP (TOTP 2FA).
-    * Yêu cầu đổi mật khẩu lần đầu nếu mật khẩu được tạo tự động bởi admin.
-    * Thay đổi mật khẩu (yêu cầu mật khẩu hiện tại và OTP).
-    * Xem thông tin cá nhân.
-    * Cập nhật thông tin cá nhân (Họ tên, Email, SĐT - yêu cầu OTP).
-- Quản lý Ví điểm:
-    * Mỗi người dùng có một ví điểm riêng.
-    * Xem số dư và lịch sử giao dịch của ví.
-    * Chuyển điểm giữa các ví (yêu cầu OTP để xác nhận).
-- Chức năng Admin:
-    * Xem danh sách tất cả người dùng.
-    * Tạo tài khoản mới cho người dùng (với mật khẩu tự động sinh).
-    * Chỉnh sửa thông tin người dùng (Họ tên, Email, SĐT, Vai trò).
-    * Tự động tạo tài khoản "admin" mặc định nếu chưa tồn tại khi khởi chạy lần đầu.
-- Bảo mật:
-    * Mật khẩu được băm bằng SHA-256 trước khi lưu trữ.
-    * Xác thực hai yếu tố (2FA) dựa trên TOTP khi đăng nhập, sử dụng khóa bí mật OATH và công cụ "oathtool".
-    * Sử dụng OTP cho các hành động như đổi mật khẩu, cập nhật hồ sơ, chuyển điểm.
-- Lưu trữ Dữ liệu:
-    * Thông tin người dùng được lưu vào file "users.txt".
-    * Thông tin ví và lịch sử giao dịch được lưu vào file "wallets.txt".
-    * Tự động tạo file backup (.bak) mỗi khi lưu dữ liệu.
-    * Tự động đọc từ file backup nếu file chính bị lỗi hoặc không tồn tại.
+### Mục tiêu hệ thống
+Hệ thống quản lý điểm thưởng được thiết kế để quản lý tài khoản người dùng và ví điểm thưởng, hỗ trợ các hoạt động như đăng ký, đăng nhập, chuyển điểm, và quản lý thông tin người dùng với bảo mật cao thông qua OTP và băm mật khẩu.
 
-## Yêu cầu Hệ thống
+#### Mô tả chức năng
+* Hệ thống bao gồm các chức năng chính sau:
+  - Đăng ký tài khoản:
+    + Mô tả: Cho phép người dùng hoặc quản trị viên tạo tài khoản mới.
+    + Đầu vào: Tên đăng nhập, mật khẩu (tự nhập hoặc tự động sinh), họ tên, email, số điện thoại.
+    + Đầu ra: Tài khoản được tạo với ví điểm thưởng liên kết, khóa bí mật OTP được cung cấp.
+    + Yêu cầu bảo mật: Mật khẩu được băm bằng SHA-256, hỗ trợ xác thực hai yếu tố (2FA) qua OTP.
+  - Đăng nhập:
+    + Mô tả: Xác thực người dùng để truy cập hệ thống.
+    + Đầu vào: Tên đăng nhập, mật khẩu, mã OTP.
+    + Đầu ra: Truy cập thành công hoặc thông báo lỗi.
+    + Yêu cầu bảo mật: Kiểm tra mật khẩu băm và mã OTP hợp lệ.
+  - Quản lý thông tin cá nhân:
+    + Mô tả: Cho phép người dùng xem và cập nhật thông tin cá nhân (họ tên, email, số điện thoại).
+    + Đầu vào: Thông tin mới, mã OTP xác nhận.
+    + Đầu ra: Thông tin được cập nhật hoặc thông báo lỗi.
+  - Đổi mật khẩu:
+    + Mô tả: Cho phép người dùng thay đổi mật khẩu.
+    + Đầu vào: Mật khẩu hiện tại, mật khẩu mới, mã OTP xác nhận.
+    + Đầu ra: Mật khẩu được cập nhật hoặc thông báo lỗi.
+  - Quản lý ví điểm thưởng:
+    + Mô tả: Cho phép xem số dư, lịch sử giao dịch, và chuyển điểm giữa các ví.
+    + Đầu vào: Số điểm cần chuyển, ID ví đích, mã OTP xác nhận.
+    + Đầu ra: Giao dịch thành công hoặc thông báo lỗi.
+  - Quản lý người dùng (dành cho admin):
+    + Mô tả: Admin có thể xem danh sách người dùng, tạo tài khoản mới, và chỉnh sửa thông tin người dùng.
+    + Đầu vào: Tên đăng nhập, thông tin cần chỉnh sửa.
+    + Đầu ra: Danh sách người dùng hoặc thông tin được cập nhật.
 
-Để biên dịch và chạy chương trình này cần:
+#### Phân tích yêu cầu
+* Yêu cầu chức năng:
+  - Hỗ trợ xác thực hai yếu tố (2FA) qua OTP.
+  - Lưu trữ dữ liệu người dùng và ví an toàn trong tệp users.txt và wallets.txt.
+  - Giao diện dòng lệnh thân thiện, dễ sử dụng.
 
-1.  Trình biên dịch C++: Hỗ trợ C++11 trở lên (ví dụ: g++ hoặc clang++).
-2.  Thư viện OpenSSL: Bao gồm cả header files (thường là gói "libssl-dev" hoặc "openssl-devel"). Cần thiết cho việc băm mật khẩu.
-3.  Công cụ OATH Toolkit: Cần được cài đặt và có sẵn trong PATH của hệ thống. Cần thiết cho việc xác thực mã OTP 2FA.
+#### Yêu cầu Hệ thống
+
+* Để biên dịch và chạy chương trình này cần:
+  - Trình biên dịch C++: Hỗ trợ C++11 trở lên (ví dụ: g++ hoặc clang++).
+  - Thư viện OpenSSL: Bao gồm cả header files (thường là gói "libssl-dev" hoặc "openssl-devel"). Cần thiết cho việc băm mật khẩu.
+  - Công cụ OATH Toolkit: Cần được cài đặt và có sẵn trong PATH của hệ thống. Cần thiết cho việc xác thực mã OTP 2FA.
 
 ## Hướng dẫn Cài đặt và Chạy
 
@@ -117,3 +129,35 @@ hethongquanly/
 - Lưu trữ OATH Key: Khóa bí mật OATH được lưu trữ dưới dạng văn bản gốc trong "users.txt".
 - Lưu trữ Dữ liệu: Sử dụng file text để dữ liệu.
 - Randomness: "srand(time(0) + rand())" nguồn tạo số ngẫu nhiên cho mục đích mật mã.
+
+## Các thao tác thực hiện
+* Menu chính:
+1. Đăng nhập: Nhập tên đăng nhập, mật khẩu, và mã OTP.
+2. Đăng ký: Nhập thông tin để tạo tài khoản mới (tên đăng nhập, mật khẩu, họ tên, email, số điện thoại).
+3. Thoát: Kết thúc chương trình.
+
+* Menu người dùng (sau khi đăng nhập):
+1. Xem thông tin cá nhân: Hiển thị thông tin tài khoản.
+2. Cập nhật thông tin cá nhân: Cập nhật họ tên, email, số điện thoại (yêu cầu OTP).
+3. Đổi mật khẩu: Đổi mật khẩu mới (yêu cầu mật khẩu hiện tại và OTP).
+4. Quản lý ví điểm thưởng:
+   - Xem thông tin ví & lịch sử giao dịch: Hiển thị số dư và lịch sử.
+   - Chuyển điểm: Nhập ID ví đích, số điểm, và OTP để chuyển.
+   - Quay lại menu trước.
+5. Đăng xuất.
+
+* Menu admin:
+1. Xem danh sách người dùng: Hiển thị danh sách tất cả người dùng.
+2. Tạo tài khoản mới: Tạo tài khoản cho người dùng khác (mật khẩu tự động sinh).
+3. Chỉnh sửa tài khoản người dùng: Cập nhật thông tin người dùng (họ tên, email, số điện thoại, vai trò).
+4. Đăng xuất.
+
+## Tài liệu tham khảo
+
+- Bài tập có sử dụng các tài liệu và nguồn tham khảo sau:
+  + OpenSSL Documentation: https://www.openssl.org/docs/
+    Được sử dụng để triển khai băm mật khẩu bằng SHA-256.
+  + C++ Standard Library Reference: https://en.cppreference.com/w/
+    Tham khảo cho các thư viện chuẩn như <vector>, <string>, <fstream>,...
+  + OATH Toolkit (oathtool): https://www.nongnu.org/oath-toolkit/
+    Hướng dẫn cài đặt và sử dụng oathtool cho OTP.
