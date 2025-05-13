@@ -9,10 +9,12 @@
 
 using namespace std;
 
-const string DATA_DIR = "data/";
+const string DATA_DIR = "data/"; // thu muc luu du lieu cho vi: wallets.txt
 
+// khoi tao vi voi ID va so du
 Wallet::Wallet(string id, double b) : walletID(id), balance(b) {}
 
+// luu danh sach vi vao file ../data/wallets.txt
 void saveWallets(const vector<Wallet>& wallets, const string& relativeFilename) {
     string filename = DATA_DIR + relativeFilename;
     string backupFilename = filename + ".bak";
@@ -38,6 +40,7 @@ void saveWallets(const vector<Wallet>& wallets, const string& relativeFilename) 
     }
 }
 
+// tai danh sach vi tu file ../data/wallets.txt
 vector<Wallet> loadWallets(const string& relativeFilename) {
     string filename = DATA_DIR + relativeFilename;
     string backupFilename = filename + ".bak";
@@ -85,6 +88,7 @@ vector<Wallet> loadWallets(const string& relativeFilename) {
     return wallets;
 }
 
+// chuyen diem giua cac vi
 void transferPoints(User& sender, vector<User>& users, vector<Wallet>& wallets) {
     string destWalletID;
     double points;
@@ -154,6 +158,7 @@ void transferPoints(User& sender, vector<User>& users, vector<Wallet>& wallets) 
     }
 }
 
+// xem thong tin vi (so du, lich su giao dich)
 void viewWallet(const User& user, const vector<Wallet>& wallets) {
     bool found = false;
     for (const auto& wallet : wallets) {
