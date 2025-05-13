@@ -158,6 +158,6 @@ hethongquanly/
   + OpenSSL Documentation: https://www.openssl.org/docs/
     Được sử dụng để triển khai băm mật khẩu bằng SHA-256.
   + C++ Standard Library Reference: https://en.cppreference.com/w/
-    Tham khảo cho các thư viện chuẩn như <vector>, <string>, <fstream>,...
+    Tham khảo cho các thư viện chuẩn như '<vector>', '<string>', '<fstream>',...
   + OATH Toolkit (oathtool): https://www.nongnu.org/oath-toolkit/
     Hướng dẫn cài đặt và sử dụng oathtool cho OTP.
