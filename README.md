@@ -57,7 +57,7 @@ Hệ thống quản lý điểm thưởng được thiết kế để quản lý
   - Thư viện OpenSSL: Bao gồm cả header files (thường là gói "libssl-dev" hoặc "openssl-devel"). Cần thiết cho việc băm mật khẩu.
   - Công cụ OATH Toolkit: Cần được cài đặt và có sẵn trong PATH của hệ thống. Cần thiết cho việc xác thực mã OTP 2FA.
 
-## Hướng dẫn Cài đặt và Chạy
+## Hướng dẫn Cài đặt và chạy
 
 ### 1. Clone Repository
 ```shell
