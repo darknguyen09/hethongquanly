@@ -4,7 +4,7 @@
 
 | **Họ Tên** | **Mã sinh viên** | **Vai trò** | **Công việc được giao** |
 | --- | --- | --- | --- |
-| Nguyễn Năng Huy | K24DTCN201 | Lập trình viên | Thiết kế kiến trúc hệ thống, lập trình các chức năng: Menu, đăng nhập, đăng ký, quản lý người dùng (admin) ,tích hợp OTP, |
+| Nguyễn Năng Huy | K24DTCN201 | Lập trình viên | Thiết kế cấu trúc hệ thống, lập trình các chức năng: Menu, đăng nhập, đăng ký, quản lý người dùng (admin) ,tích hợp OTP, |
 | Trần Thị B | K24DTCNxxx | Lập trình viên |  |
 | Lê Minh C | K24DTCNxxx | Lập trình viên |  |
 
