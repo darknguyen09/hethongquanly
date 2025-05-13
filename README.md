@@ -2,9 +2,9 @@
 
 ## Giới thiệu thành viên tham gia:
 
-| **Tên** | **Vai trò** | **Công việc được giao** |
-| --- | --- | --- |
-| Nguyễn Văn A | Lập trình viên | Thiết kế kiến trúc hệ thống, lập trình các chức năng: Menu, đăng nhập, đăng ký, quản lý người dùng (admin) ,tích hợp OTP, |
+| **Họ Tên** | **Mã sinh viên** | **Vai trò** | **Công việc được giao** |
+| --- | --- | --- | --- |
+| Nguyễn Năng Huy | K24DTCN201 | Lập trình viên | Thiết kế kiến trúc hệ thống, lập trình các chức năng: Menu, đăng nhập, đăng ký, quản lý người dùng (admin) ,tích hợp OTP, |
 | Trần Thị B | Lập trình viên | Phát triển các chức năng quản lý người dùng (admin), kiểm thử hệ thống. |
 | Lê Minh C | Lập trình viên | Xây dựng chức năng ví điểm thưởng, tích hợp bảo mật OTP và băm mật khẩu. |
 
