@@ -1,5 +1,15 @@
 # Hệ Thống Quản Lý Người Dùng và Ví Điểm Thưởng
 
+```
+| **Tên** | **Vai trò** | **Công việc được giao** |
+| --- | --- | --- |
+| Nguyễn Văn A | Trưởng nhóm, Lập trình viên chính | Thiết kế kiến trúc hệ thống, lập trình các chức năng cốt lõi (đăng nhập, đăng ký, ví). |
+| Trần Thị B | Lập trình viên | Phát triển các chức năng quản lý người dùng (admin), kiểm thử hệ thống. |
+| Lê Minh C | Lập trình viên | Xây dựng chức năng ví điểm thưởng, tích hợp bảo mật OTP và băm mật khẩu. |
+| Phạm Hoàng D | Nhà phân tích, Kiểm thử | Phân tích yêu cầu, viết đặc tả chức năng, kiểm thử và đảm bảo chất lượng phần mềm. |
+
+```
+
 Đây là một chương trình C++ đơn giản mô phỏng hệ thống quản lý người dùng và ví điểm thưởng, tích hợp các tính năng bảo mật cơ bản như băm mật khẩu (SHA-256) và xác thực hai yếu tố (TOTP) sử dụng thư viện OpenSSL và công cụ OATH Toolkit.
 
 ## Tính năng
