@@ -61,7 +61,7 @@ Hệ thống quản lý điểm thưởng được thiết kế để quản lý
 
 ### 1. Clone Repository
 ```shell
-git clone https://github.com/darknguyen09/hethongquanly.git
+git clone https://github.com/mokaa1102/hethongquanly.git
 cd hethongquanly
 ```
 ### 2. Cài đặt Dependencies
