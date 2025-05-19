@@ -7,8 +7,72 @@
 | Nguyễn Năng Huy | K24DTCN201 | Lập trình viên | Thiết kế cấu trúc hệ thống, lập trình các chức năng: Menu, đăng nhập, đăng ký, quản lý người dùng (admin) ,tích hợp OTP, |
 | Trần Thị B | K24DTCNxxx | Lập trình viên |  |
 | Lê Minh C | K24DTCNxxx | Lập trình viên |  |
+| Bùi Minh H | K24DTCNxxx | Lập trình viên |  |
 
 Đây là một chương trình C++ đơn giản mô phỏng hệ thống quản lý người dùng và ví điểm thưởng, tích hợp các tính năng bảo mật cơ bản như băm mật khẩu (SHA-256) và xác thực hai yếu tố (TOTP) sử dụng thư viện OpenSSL và công cụ OATH Toolkit.
+
+## Cấu trúc chương trình
+
+```
++---------------------+
+|       main.cpp      |
+| - main()            |
+| - Menu chính        |
+|   - Đăng nhập       |
+|   - Đăng ký         |
+|   - Thoát           |
+| - Menu người dùng   |
+|   - Xem thông tin   |
+|   - Cập nhật thông tin |
+|   - Đổi mật khẩu    |
+|   - Quản lý ví      |
+|   - Admin functions |
++---------------------+
+          |
+          | Uses
+          v
++---------------------+       +---------------------+
+|      user.h         |<----->|      wallet.h       |
+| - Class User        |       | - Class Wallet      |
+|   - username        |       |   - walletID        |
+|   - password        |       |   - balance         |
+|   - fullName        |       |   - transactionLog  |
+|   - email, phone    |       | - Wallet functions  |
+|   - role, walletID  |       |   - save/load       |
+|   - oathSecretKey   |       |   - transferPoints  |
+| - User functions    |       |   - viewWallet      |
+|   - save/load       |       |   - depositPoints   |
+|   - registerUser    |       |                     |
+|   - login           |       |                     |
+|   - changePassword  |       |                     |
+|   - updateProfile   |       |                     |
+|   - viewUsers       |       |                     |
+|   - adminEditUser   |       |                     |
++---------------------+       +---------------------+
+          |                           |
+          | Implements                | Implements
+          v                           v
++---------------------+       +---------------------+
+|      user.cpp       |       |      wallet.cpp     |
+| - Implements User   |       | - Implements Wallet |
+|   functions         |       |   functions         |
+| - Handles:          |       | - Handles:          |
+|   - File I/O        |       |   - File I/O        |
+|   - Password hashing|       |   - Wallet ops      |
+|   - OTP generation  |       |   - Transaction log |
+|   - User management |       |                     |
++---------------------+       +---------------------+
+          |                           |
+          | Reads/Writes              | Reads/Writes
+          v                           v
++---------------------+       +---------------------+
+|   data/users.txt    |       |  data/wallets.txt   |
+| - Stores user data  |       | - Stores wallet data|
+| - Format: CSV       |       | - Format: CSV       |
+| - Backup: .bak      |       | - Backup: .bak      |
++---------------------+       +---------------------+
+
+```
 
 ## Phân tích và đặc tả chức năng
 
