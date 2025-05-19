@@ -7,40 +7,40 @@
 | Nguyễn Năng Huy | K24DTCN201 | Lập trình viên | Thiết kế cấu trúc hệ thống, lập trình các chức năng: Menu, đăng nhập, đăng ký, quản lý người dùng (admin) ,tích hợp OTP, |
 | Trần Thị B | K24DTCNxxx | Lập trình viên |  |
 | Lê Minh C | K24DTCNxxx | Lập trình viên |  |
-| Bùi Minh H | K24DTCNxxx | Lập trình viên |  |
+| Nguyễn Văn C | K24DTCNxxx | Lập trình viên |  |
 
 Đây là một chương trình C++ đơn giản mô phỏng hệ thống quản lý người dùng và ví điểm thưởng, tích hợp các tính năng bảo mật cơ bản như băm mật khẩu (SHA-256) và xác thực hai yếu tố (TOTP) sử dụng thư viện OpenSSL và công cụ OATH Toolkit.
 
 ## Cấu trúc chương trình
 
 ```
-+---------------------+
-|       main.cpp      |
-| - main()            |
-| - Menu chính        |
-|   - Đăng nhập       |
-|   - Đăng ký         |
-|   - Thoát           |
-| - Menu người dùng   |
-|   - Xem thông tin   |
++------------------------+
+|       main.cpp         |
+| - main()               |
+| - Menu chính           |
+|   - Đăng nhập          |
+|   - Đăng ký            |
+|   - Thoát              |
+| - Menu người dùng      |
+|   - Xem thông tin      |
 |   - Cập nhật thông tin |
-|   - Đổi mật khẩu    |
-|   - Quản lý ví      |
-|   - Admin functions |
-+---------------------+
+|   - Đổi mật khẩu       |
+|   - Quản lý ví         |
+|   - Chức năng admin    |
++------------------------+
           |
-          | Uses
+          | Sử dụng
           v
 +---------------------+       +---------------------+
 |      user.h         |<----->|      wallet.h       |
-| - Class User        |       | - Class Wallet      |
+| - Lớp User          |       | - Lớp Wallet        |
 |   - username        |       |   - walletID        |
 |   - password        |       |   - balance         |
 |   - fullName        |       |   - transactionLog  |
-|   - email, phone    |       | - Wallet functions  |
+|   - email, phone    |       | - Hàm ví            |
 |   - role, walletID  |       |   - save/load       |
 |   - oathSecretKey   |       |   - transferPoints  |
-| - User functions    |       |   - viewWallet      |
+| - Hàm người dùng    |       |   - viewWallet      |
 |   - save/load       |       |   - depositPoints   |
 |   - registerUser    |       |                     |
 |   - login           |       |                     |
@@ -50,27 +50,27 @@
 |   - adminEditUser   |       |                     |
 +---------------------+       +---------------------+
           |                           |
-          | Implements                | Implements
+          | Triển khai                | Triển khai
           v                           v
-+---------------------+       +---------------------+
-|      user.cpp       |       |      wallet.cpp     |
-| - Implements User   |       | - Implements Wallet |
-|   functions         |       |   functions         |
-| - Handles:          |       | - Handles:          |
-|   - File I/O        |       |   - File I/O        |
-|   - Password hashing|       |   - Wallet ops      |
-|   - OTP generation  |       |   - Transaction log |
-|   - User management |       |                     |
-+---------------------+       +---------------------+
++------------------------+       +-----------------------+
+|      user.cpp          |       |      wallet.cpp       |
+| - Triển khai User      |       | - Triển khai Wallet   |
+|   functions            |       |   functions           |
+| - Xử lý:               |       | - Xử lý:              |
+|   - Đọc/ghi tệp        |       |   - Đọc/ghi tệp       |
+|   - Băm mật khẩu       |       |   - Thao tác ví       |
+|   - Sinh OTP           |       |   - Nhật ký giao dịch |
+|   - Quản lý người dùng |       |                       |
++------------------------+       +-----------------------+
           |                           |
-          | Reads/Writes              | Reads/Writes
+          | Đọc/Ghi                   | Đọc/Ghi
           v                           v
-+---------------------+       +---------------------+
-|   data/users.txt    |       |  data/wallets.txt   |
-| - Stores user data  |       | - Stores wallet data|
-| - Format: CSV       |       | - Format: CSV       |
-| - Backup: .bak      |       | - Backup: .bak      |
-+---------------------+       +---------------------+
++--------------------------+       +---------------------+
+|   data/users.txt         |       |  data/wallets.txt   |
+| - Lưu dữ liệu người dùng |       | - Lưu dữ liệu ví    |
+| - Định dạng: CSV         |       | - Định dạng: CSV    |
+| - Sao lưu: .bak          |       | - Sao lưu: .bak     |
++--------------------------+       +---------------------+
 
 ```
 
