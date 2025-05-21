@@ -1,7 +1,7 @@
 # Bài tập lớn môn Ngôn ngữ lập trình C++ - Hệ Thống Quản Lý Người Dùng và Ví Điểm Thưởng
 
 ## Giới thiệu thành viên tham gia:
-Lớp D24TXCN05-K
+### Lớp D24TXCN05-K
 
 | **Họ Tên** | **Mã sinh viên** | **Vai trò** | **Công việc được giao** |
 | --- | --- | --- | --- |
