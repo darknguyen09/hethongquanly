@@ -21,5 +21,4 @@ std::vector<Wallet> loadWallets(const std::string& relativeFilename); // tai dan
 
 void transferPoints(User& sender, std::vector<User>& users, std::vector<Wallet>& wallets); // chuyen diem
 void viewWallet(const User& user, const std::vector<Wallet>& wallets); // xem vi
-
 #endif
